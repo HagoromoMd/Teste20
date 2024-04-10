@@ -1,581 +1,266 @@
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RayzMd/Energy-shock-simulator/main/SyniX"))()
-local Window = OrionLib:MakeWindow({Name = "Batalha de guerra", HidePremium = false, SaveConfig = false, ConfigFolder = "Synix"})
+-- Instances:
 
+local flyv1 = Instance.new("ScreenGui")
+local backgrondfly = Instance.new("Frame")
+local logoSyn = Instance.new("ImageLabel")
+local bordas = Instance.new("UICorner")
+local degrad = Instance.new("UIGradient")
+local SyniX = Instance.new("TextLabel")
+local FlyBUtton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local up = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local down = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIGradient_3 = Instance.new("UIGradient")
+local speed = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local UIGradient_4 = Instance.new("UIGradient")
+local speed_2 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local UIGradient_5 = Instance.new("UIGradient")
 
+--Properties:
 
-local PlayerTab = Window:MakeTab({
-    Name = "Player",
-    Icon = "rbxassetid://ID_DO_ICONE",
-    PremiumOnly = false
-})
+flyv1.Name = "flyv1"
+flyv1.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+flyv1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local autokickEnabled = false
+backgrondfly.Name = "backgrondfly"
+backgrondfly.Parent = flyv1
+backgrondfly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+backgrondfly.BorderColor3 = Color3.fromRGB(0, 0, 0)
+backgrondfly.BorderSizePixel = 0
+backgrondfly.Position = UDim2.new(0.302949131, 0, 0.312302828, 0)
+backgrondfly.Size = UDim2.new(0, 328, 0, 134)
 
-local function autokick()
-    local Cam = workspace.CurrentCamera
+logoSyn.Name = "logoSyn"
+logoSyn.Parent = backgrondfly
+logoSyn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+logoSyn.BackgroundTransparency = 1.000
+logoSyn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+logoSyn.BorderSizePixel = 0
+logoSyn.Size = UDim2.new(0, 46, 0, 46)
+logoSyn.Image = "rbxassetid://14862323455"
 
-    local hotkey = true
-    local maxDistance = 90 -- Defina a distância máxima aqui
+bordas.Name = "bordas"
+bordas.Parent = backgrondfly
 
-    function lookAt(target, eye)
-        Cam.CFrame = CFrame.new(target, eye)
-    end
+degrad.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(2, 2, 2)), ColorSequenceKeypoint.new(0.55, Color3.fromRGB(60, 3, 66)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(67, 2, 75))}
+degrad.Name = "degrad"
+degrad.Parent = backgrondfly
 
-    function getClosestEnemyPlayerToCursor(trg_part)
-        local nearest = nil
-        local last = math.huge
-        for i, v in pairs(game.Players:GetPlayers()) do
-            if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character and v.Character and v.Character:FindFirstChild(trg_part) then
-                if game.Players.LocalPlayer.Character:FindFirstChild(trg_part) then
-                    -- Verifique se o jogador não está no mesmo time
-                    if v.Team ~= game.Players.LocalPlayer.Team then
-                        local ePos, vissss = workspace.CurrentCamera:WorldToViewportPoint(v.Character[trg_part].Position)
-                        local AccPos = Vector2.new(ePos.x, ePos.y)
-                        local mousePos = Vector2.new(workspace.CurrentCamera.ViewportSize.x / 2, workspace.CurrentCamera.ViewportSize.y / 2)
-                        local distance = (AccPos - mousePos).magnitude
-                        if distance < last and vissss and hotkey and distance < maxDistance then
-                            last = distance
-                            nearest = v
-                        end
-                    end
-                end
-            end
-        end
-        return nearest
-    end
+SyniX.Name = "SyniX"
+SyniX.Parent = backgrondfly
+SyniX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SyniX.BackgroundTransparency = 1.000
+SyniX.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SyniX.BorderSizePixel = 0
+SyniX.Position = UDim2.new(0.259740263, 0, 0.0973451361, 0)
+SyniX.Size = UDim2.new(0, 80, 0, 23)
+SyniX.Font = Enum.Font.Unknown
+SyniX.Text = "SyniX Fly v1"
+SyniX.TextColor3 = Color3.fromRGB(255, 255, 255)
+SyniX.TextSize = 27.000
 
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if autokickEnabled then
-            local closest = getClosestEnemyPlayerToCursor("Head")
-            if closest and closest.Character:FindFirstChild("Head") then
-                lookAt(Cam.CFrame.p, closest.Character:FindFirstChild("Head").Position)
-            end
-        end
-    end)
+FlyBUtton.Name = "FlyBUtton"
+FlyBUtton.Parent = backgrondfly
+FlyBUtton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FlyBUtton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FlyBUtton.BorderSizePixel = 0
+FlyBUtton.Position = UDim2.new(0.751663029, 0, 0.672566414, 0)
+FlyBUtton.Size = UDim2.new(0, 74, 0, 31)
+FlyBUtton.Font = Enum.Font.FredokaOne
+FlyBUtton.Text = "FLY"
+FlyBUtton.TextColor3 = Color3.fromRGB(0, 0, 0)
+FlyBUtton.TextSize = 23.000
+
+UICorner.Parent = FlyBUtton
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(118, 0, 131)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
+UIGradient.Parent = FlyBUtton
+
+up.Name = "up"
+up.Parent = backgrondflyup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+up.BorderColor3 = Color3.fromRGB(250, 221, 0)
+up.BorderSizePixel = 0
+up.Position = UDim2.new(0.575625539, 0, 0.672566414, 0)
+up.Size = UDim2.new(0, 43, 0, 31)
+up.Font = Enum.Font.FredokaOne
+up.Text = "UP"
+up.TextColor3 = Color3.fromRGB(0, 0, 0)
+up.TextSize = 23.000
+
+UICorner_2.Parent = up
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
+UIGradient_2.Parent = up
+
+down.Name = "down"
+down.Parent = backgrondfly
+down.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+down.BorderColor3 = Color3.fromRGB(250, 221, 0)
+down.BorderSizePixel = 0
+down.Position = UDim2.new(0.350015789, 0, 0.672566414, 0)
+down.Size = UDim2.new(0, 67, 0, 31)
+down.Font = Enum.Font.FredokaOne
+down.Text = "DOWN"
+down.TextColor3 = Color3.fromRGB(0, 0, 0)
+down.TextSize = 23.000
+
+UICorner_3.Parent = down
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
+UIGradient_3.Parent = down
+
+speed.Name = "speed+"
+speed.Parent = backgrondfly
+speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speed.BorderColor3 = Color3.fromRGB(250, 221, 0)
+speed.BorderSizePixel = 0
+speed.Position = UDim2.new(0.880504131, 0, 0.381521642, 0)
+speed.Size = UDim2.new(0, 31, 0, 31)
+speed.Font = Enum.Font.FredokaOne
+speed.Text = "+"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextSize = 23.000
+
+UICorner_4.Parent = speed
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
+UIGradient_4.Parent = speed
+
+speed_2.Name = "speed-"
+speed_2.Parent = backgrondfly
+speed_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speed_2.BorderColor3 = Color3.fromRGB(250, 221, 0)
+speed_2.BorderSizePixel = 0
+speed_2.Position = UDim2.new(0.749406576, 0, 0.381521642, 0)
+speed_2.Size = UDim2.new(0, 31, 0, 31)
+speed_2.Font = Enum.Font.FredokaOne
+speed_2.Text = "-"
+speed_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed_2.TextSize = 23.000
+
+UICorner_5.Parent = speed_2
+
+UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
+UIGradient_5.Parent = speed_2
+-- Scripts:
+
+local function FIFMQQT_fake_script() -- FlyBUtton.LocalScript 
+	local script = Instance.new('LocalScript', FlyBUtton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/u2abqguX", true))()
+	end)
 end
-local toggle = PlayerTab:AddToggle({
-    Name = "Aimbot",
-    Default = false,
-    Callback = function(Value)
-        autokickEnabled = Value -- Set the autokick status
-        if Value then
-            autokick()
-        end
-    end
-})
+coroutine.wrap(FIFMQQT_fake_script)()
 
+local function UFFDM_fake_script() -- up.LocalScript 
+	local script = Instance.new('LocalScript', up)
 
-
-
-
-local Section = PlayerTab:AddSection({
-    Name = "speed"
-})  
-local noclipEnabled = false
-
-local noclipEnabled = false
-
-PlayerTab:AddToggle({
-    Name = "Noclip",
-    Default = false,
-    Callback = function(value)
-        noclipEnabled = value
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-
-        if noclipEnabled then
-            character:WaitForChild("Head").CanCollide = false
-            character:WaitForChild("Torso").CanCollide = false
-            character:WaitForChild("Humanoid").MaxHealth = math.huge
-            character:WaitForChild("Humanoid").Health = math.huge
-        end
-    end
-})
-
-game:GetService("RunService").Stepped:Connect(function()
-    if noclipEnabled then
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-
-        if character and character:FindFirstChild("Humanoid") then
-            character:WaitForChild("Head").CanCollide = false
-            character:WaitForChild("Torso").CanCollide = false
-        end
-    end
-end)
-
-local InfiniteJumpEnabled = false  -- Adicionamos uma variável para rastrear o estado do pulo infinito
-
-PlayerTab:AddToggle({
-    Name = "Jump Infinito",
-    Default = false,
-    Callback = function(value)
-        _G.infinitojump = value
-        InfiniteJumpEnabled = value  -- Atualizamos o estado do pulo infinito ao ativar/desativar o toggle
-        while _G.infinitojump do
-            game:GetService("UserInputService").JumpRequest:Connect(function()
-                if InfiniteJumpEnabled then
-                    game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-                end
-            end)
-            wait()
-        end
-    end
-})
-
-
-local function setSpeed(value)
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    if character and character:FindFirstChild("Humanoid") then
-        local humanoid = character:FindFirstChild("Humanoid")
-        humanoid.WalkSpeed = tonumber(value)
-    end
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/XC4czN8d", true))()
+	end)
 end
+coroutine.wrap(UFFDM_fake_script)()
 
-local speedEnabled = false
-local lastSelectedSpeed = "16"
+local function WHQQX_fake_script() -- down.LocalScript 
+	local script = Instance.new('LocalScript', down)
 
-local speedToggle = PlayerTab:AddToggle({
-    Name = "Toggle Speed",
-    Default = false,
-    Callback = function(value)
-        speedEnabled = value
-        if value then
-            setSpeed(lastSelectedSpeed)
-        else
-            setSpeed("16")  -- Substitua "16" pela velocidade padrão quando o toggle é desativado
-        end
-    end
-})
-
-local speedDropdown = PlayerTab:AddDropdown({
-    Name = "Speed",
-    Default = "16",
-    Options = {"0", "5", "10", "16", "22", "30", "35", "40", "50", "55", "65", "70", "80", "90", "95", "100", "125", "150", "200", "250", "300", "325", "350", "375", "390", "400"},
-    Callback = function(value)
-        lastSelectedSpeed = value
-        if speedEnabled then
-            setSpeed(value)
-        end
-    end
-})
-
-
-local TeleportTab = Window:MakeTab({
-    Name = "Teleport",
-    Icon = "rbxassetid://ID_DO_ICONE",
-    PremiumOnly = false
-})
-
-TeleportTab:AddButton({
-    Name = " Telhado Bandeira",
-    Callback = function()
-        -- Defina as coordenadas para onde deseja teleportar
-local teleportLocation = CFrame.new(Vector3.new(-2261.867919921875, -267.2219543457031, 2619.297119140625))
-
--- Encontre o jogador que você deseja teleportar
-local player = game.Players.LocalPlayer -- Substitua pelo jogador que deseja teleportar
-
--- Teleporte o jogador para a coordenada
-player.Character:SetPrimaryPartCFrame(teleportLocation)
-
-    end
-})
-
-local EXTRASTab = Window:MakeTab({
-    Name = "EXTRAS",
-    Icon = "rbxassetid://ID_DO_ICONE",
-    PremiumOnly = false
-})
-
-EXTRASTab:AddButton({
-    Name = "FLY",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
-    end
-})
-EXTRASTab:AddButton({
-    Name = "YIELD",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-    end
-})
-
-
-
-local isEspEnabled = false
-local espObjects = {} -- Armazenar referências aos objetos ESP para fácil remoção
-
-local function createEsp(player)
-    local localPlayer = game.Players.LocalPlayer
-    local myTeamColor = Color3.fromRGB(0, 0, 255)
-    local enemyTeamColor = Color3.fromRGB(255, 0, 0)
-
-    if player.Character and player.Character:FindFirstChild("Head") then
-        local espName = "ESP_" .. player.UserId
-        local head = player.Character.Head
-
-        local distance = (head.Position - localPlayer.Character.Head.Position).magnitude
-        local distanceFactor = math.clamp(distance / 10, 0, 1)
-
-        local BillboardGui = Instance.new("BillboardGui")
-        BillboardGui.Name = espName
-        BillboardGui.Parent = head
-        BillboardGui.Size = UDim2.new(0, 200 * distanceFactor, 0, 50 * distanceFactor)
-        BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
-        BillboardGui.AlwaysOnTop = true
-
-        local TextLabel = Instance.new("TextLabel")
-        TextLabel.Parent = BillboardGui
-        TextLabel.BackgroundTransparency = 1
-        TextLabel.Size = UDim2.new(1, 0, 1, 0)
-        TextLabel.Font = Enum.Font.GothamBold
-        TextLabel.Text = player.Name
-        TextLabel.TextColor3 = player.Team == localPlayer.Team and myTeamColor or enemyTeamColor
-        TextLabel.TextSize = 11
-
-        espObjects[player.UserId] = {BillboardGui, TextLabel}
-    end
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/URD3kmUg", true))()
+	end)
 end
+coroutine.wrap(WHQQX_fake_script)()
 
-local function removeEsp(player)
-    local espName = "ESP_" .. player.UserId
-    local esp = espObjects[player.UserId]
+local function FBYT_fake_script() -- speed.LocalScript 
+	local script = Instance.new('LocalScript', speed)
 
-    if esp then
-        for _, obj in pairs(esp) do
-            obj:Destroy()
-        end
-        espObjects[player.UserId] = nil
-    end
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/9YhACckB", true))()
+	end)
 end
+coroutine.wrap(FBYT_fake_script)()
 
---// Made by Blissful#4992
---// Locals:
-local workspace = game:GetService("Workspace")
-local player = game:GetService("Players").LocalPlayer
-local camera = workspace.CurrentCamera
+local function GQYU_fake_script() -- speed_2.LocalScript 
+	local script = Instance.new('LocalScript', speed_2)
 
-local isEspEnabled = false
-
-PlayerTab:AddToggle({
-    Name = "Esp Player",
-    Default = false,
-    Callback = function(value)
-        isEspEnabled = value
-    end
-})
-
---// Settings:
-local on = true -- Use this if you're making gui
-
-local Box_Color = Color3.fromRGB(0, 255, 50)
-local Box_Thickness = 1.4
-local Box_Transparency = 1 -- 1 Visible, 0 Not Visible
-
-local Tracers = true
-local Tracer_Color = Color3.fromRGB(0, 255, 50)
-local Tracer_Thickness = 1.4
-local Tracer_Transparency = 1 -- 1 Visible, 0 Not Visible
-
-local Autothickness = false -- Makes screen less encumbered
-
-local Team_Check = false
-local red = Color3.fromRGB(227, 52, 52)
-local green = Color3.fromRGB(88, 217, 24)
-
-local function NewLine()
-    local line = Drawing.new("Line")
-    line.Visible = false
-    line.From = Vector2.new(0, 0)
-    line.To = Vector2.new(1, 1)
-    line.Color = Box_Color
-    line.Thickness = Box_Thickness
-    line.Transparency = Box_Transparency
-    return line
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/9YhACckB", true))()
+	end)
 end
+coroutine.wrap(GQYU_fake_script)()
+-- LocalScripts:
 
---// Main Function:
-while wait() do
-    pcall(function()
-        for i, v in pairs(game.Players:GetChildren()) do
-            --// Lines for 3D box (12)
-            local lines = {
-                line1 = NewLine(),
-                line2 = NewLine(),
-                line3 = NewLine(),
-                line4 = NewLine(),
-                line5 = NewLine(),
-                line6 = NewLine(),
-                line7 = NewLine(),
-                line8 = NewLine(),
-                line9 = NewLine(),
-                line10 = NewLine(),
-                line11 = NewLine(),
-                line12 = NewLine(),
-                Tracer = NewLine()
-            }
+local function WVFY_fake_script() -- backgrondfly.LocalScript 
+	local script = Instance.new('LocalScript', backgrondfly)
 
-            lines.Tracer.Color = Tracer_Color
-            lines.Tracer.Thickness = Tracer_Thickness
-            lines.Tracer.Transparency = Tracer_Transparency
-
-            --// Updates ESP (lines) in render loop
-            local function ESP()
-                local connection
-                connection = game:GetService("RunService").RenderStepped:Connect(function()
-                    if on and isEspEnabled and v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Name ~= player.Name and v.Character.Humanoid.Health > 0 and v.Character:FindFirstChild("Head") ~= nil then
-                        local pos, vis = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
-                        if vis then
-                            local Scale = v.Character.Head.Size.Y/2
-                            local Size = Vector3.new(2, 3, 1.5) * (Scale * 2) -- Change this for different box size
-
-                            local Top1 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, Size.Y, -Size.Z)).p)
-                            local Top2 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, Size.Y, Size.Z)).p)
-                            local Top3 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, Size.Y, Size.Z)).p)
-                            local Top4 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, Size.Y, -Size.Z)).p)
-
-                            local Bottom1 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, -Size.Y, -Size.Z)).p)
-                            local Bottom2 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, -Size.Y, Size.Z)).p)
-                            local Bottom3 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, -Size.Y, Size.Z)).p)
-                            local Bottom4 = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, -Size.Y, -Size.Z)).p)
-
-                            --// Top:
-                            lines.line1.From = Vector2.new(Top1.X, Top1.Y)
-                            lines.line1.To = Vector2.new(Top2.X, Top2.Y)
-
-                            lines.line2.From = Vector2.new(Top2.X, Top2.Y)
-                            lines.line2.To = Vector2.new(Top3.X, Top3.Y)
-
-                            lines.line3.From = Vector2.new(Top3.X, Top3.Y)
-                            lines.line3.To = Vector2.new(Top4.X, Top4.Y)
-
-                            lines.line4.From = Vector2.new(Top4.X, Top4.Y)
-                            lines.line4.To = Vector2.new(Top1.X, Top1.Y)
-
-                            --// Bottom:
-                            lines.line5.From = Vector2.new(Bottom1.X, Bottom1.Y)
-                            lines.line5.To = Vector2.new(Bottom2.X, Bottom2.Y)
-
-                            lines.line6.From = Vector2.new(Bottom2.X, Bottom2.Y)
-                            lines.line6.To = Vector2.new(Bottom3.X, Bottom3.Y)
-
-                            lines.line7.From = Vector2.new(Bottom3.X, Bottom3.Y)
-                            lines.line7.To = Vector2.new(Bottom4.X, Bottom4.Y)
-
-                            lines.line8.From = Vector2.new(Bottom4.X, Bottom4.Y)
-                            lines.line8.To = Vector2.new(Bottom1.X, Bottom1.Y)
-
-                            --//S ides:
-                            lines.line9.From = Vector2.new(Bottom1.X, Bottom1.Y)
-                            lines.line9.To = Vector2.new(Top1.X, Top1.Y)
-
-                            lines.line10.From = Vector2.new(Bottom2.X, Bottom2.Y)
-                            lines.line10.To = Vector2.new(Top2.X, Top2.Y)
-
-                            lines.line11.From = Vector2.new(Bottom3.X, Bottom3.Y)
-                            lines.line11.To = Vector2.new(Top3.X, Top3.Y)
-
-                            lines.line12.From = Vector2.new(Bottom4.X, Bottom4.Y)
-                            lines.line12.To = Vector2.new(Top4.X, Top4.Y)
-
-                            --// Tracer:
-                            if Tracers then
-                                local trace = camera:WorldToViewportPoint((v.Character.HumanoidRootPart.CFrame * CFrame.new(0, -Size.Y, 0)).p)
-                                lines.Tracer.From = Vector2.new(camera.ViewportSize.X/2, camera.ViewportSize.Y)
-            lines.Tracer.To = Vector2.new(trace.X, trace.Y)
-                            end
-
-                            --// Teamcheck:
-                            if Team_Check then
-                                if v.TeamColor == player.TeamColor then
-                                    for u, x in pairs(lines) do
-                                        x.Color = green
-                                    end
-                                else 
-                                    for u, x in pairs(lines) do
-                                        x.Color = red
-                                    end
-                                end
-                            end
-
-                            --// Autothickness:
-                            if Autothickness then
-                                local distance = (player.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
-                                local value = math.clamp(1/distance*100, 0.1, 4) --0.1 is min thickness, 6 is max
-                                for u, x in pairs(lines) do
-                                    x.Thickness = value
-                                end
-                            else 
-                                for u, x in pairs(lines) do
-                                    x.Thickness = Box_Thickness
-                                end
-                            end
-
-                            for u, x in pairs(lines) do
-                                if x ~= lines.Tracer then
-                                    x.Visible = true
-                                end
-                            end
-                            if Tracers then
-                                lines.Tracer.Visible = true
-                            end
-                        else 
-                            for u, x in pairs(lines) do
-                                x.Visible = false
-                            end
-                        end
-                    else 
-                        for u, x in pairs(lines) do
-                            x.Visible = false
-                        end
-                        if game.Players:FindFirstChild(v.Name) == nil then
-                            connection:Disconnect()
-                        end
-                    end
-                end)
-            end
-            coroutine.wrap(ESP)()
-        end
-    end)
+	script.Parent.Draggable = true
 end
+coroutine.wrap(WVFY_fake_script)()
 
-game.Players.PlayerAdded:Connect(function(newplr)
-    --// Lines for 3D box (12)
-    local lines = {
-        line1 = NewLine(),
-        line2 = NewLine(),
-        line3 = NewLine(),
-        line4 = NewLine(),
-        line5 = NewLine(),
-        line6 = NewLine(),
-        line7 = NewLine(),
-        line8 = NewLine(),
-        line9 = NewLine(),
-        line10 = NewLine(),
-        line11 = NewLine(),
-        line12 = NewLine(),
-        Tracer = NewLine()
-    }
+local function TIRV_fake_script() -- bordas.LocalScript 
+	local script = Instance.new('LocalScript', bordas)
 
-    lines.Tracer.Color = Tracer_Color
-    lines.Tracer.Thickness = Tracer_Thickness
-    lines.Tracer.Transparency = Tracer_Transparency
-
-    --// Updates ESP (lines) in render loop
-    local function ESP()
-        local connection
-        connection = game:GetService("RunService").RenderStepped:Connect(function()
-            if on and isEspEnabled and newplr.Character ~= nil and newplr.Character:FindFirstChild("Humanoid") ~= nil and newplr.Character:FindFirstChild("HumanoidRootPart") ~= nil and newplr.Name ~= player.Name and newplr.Character.Humanoid.Health > 0 and newplr.Character:FindFirstChild("Head") ~= nil then
-                local pos, vis = camera:WorldToViewportPoint(newplr.Character.HumanoidRootPart.Position)
-                if vis then
-                    local Scale = newplr.Character.Head.Size.Y/2
-                    local Size = Vector3.new(2, 3, 1.5) * (Scale * 2) -- Change this for different box size
-
-                    local Top1 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, Size.Y, -Size.Z)).p)
-                    local Top2 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, Size.Y, Size.Z)).p)
-                    local Top3 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, Size.Y, Size.Z)).p)
-                    local Top4 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, Size.Y, -Size.Z)).p)
-
-                    local Bottom1 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, -Size.Y, -Size.Z)).p)
-                    local Bottom2 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(-Size.X, -Size.Y, Size.Z)).p)
-                    local Bottom3 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, -Size.Y, Size.Z)).p)
-                    local Bottom4 = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(Size.X, -Size.Y, -Size.Z)).p)
-
-                    --// Top:
-                    lines.line1.From = Vector2.new(Top1.X, Top1.Y)
-                    lines.line1.To = Vector2.new(Top2.X, Top2.Y)
-
-                    lines.line2.From = Vector2.new(Top2.X, Top2.Y)
-                    lines.line2.To = Vector2.new(Top3.X, Top3.Y)
-
-                    lines.line3.From = Vector2.new(Top3.X, Top3.Y)
-                    lines.line3.To = Vector2.new(Top4.X, Top4.Y)
-
-                    lines.line4.From = Vector2.new(Top4.X, Top4.Y)
-                    lines.line4.To = Vector2.new(Top1.X, Top1.Y)
-
-                    --// Bottom:
-                    lines.line5.From = Vector2.new(Bottom1.X, Bottom1.Y)
-                    lines.line5.To = Vector2.new(Bottom2.X, Bottom2.Y)
-
-                    lines.line6.From = Vector2.new(Bottom2.X, Bottom2.Y)
-                    lines.line6.To = Vector2.new(Bottom3.X, Bottom3.Y)
-
-                    lines.line7.From = Vector2.new(Bottom3.X, Bottom3.Y)
-                    lines.line7.To = Vector2.new(Bottom4.X, Bottom4.Y)
-
-                    lines.line8.From = Vector2.new(Bottom4.X, Bottom4.Y)
-                    lines.line8.To = Vector2.new(Bottom1.X, Bottom1.Y)
-
-                    --//S ides:
-                    lines.line9.From = Vector2.new(Bottom1.X, Bottom1.Y)
-                    lines.line9.To = Vector2.new(Top1.X, Top1.Y)
-
-                    lines.line10.From = Vector2.new(Bottom2.X, Bottom2.Y)
-                    lines.line10.To = Vector2.new(Top2.X, Top2.Y)
-
-                    lines.line11.From = Vector2.new(Bottom3.X, Bottom3.Y)
-                    lines.line11.To = Vector2.new(Top3.X, Top3.Y)
-
-                    lines.line12.From = Vector2.new(Bottom4.X, Bottom4.Y)
-                    lines.line12.To = Vector2.new(Top4.X, Top4.Y)
-
-                  --// Tracer:
-if Tracers then
-    local trace = camera:WorldToViewportPoint((newplr.Character.HumanoidRootPart.CFrame * CFrame.new(0, -Size.Y, 0)).p)
-    lines.Tracer.From = Vector2.new(camera.ViewportSize.X/2, camera.ViewportSize.Y)
-    lines.Tracer.To = Vector2.new(trace.X, trace.Y)
+	script.Parent.CornerRadius = UDim.new(0, 10)
 end
-                    --// Teamcheck:
-                    if Team_Check then
-                        if newplr.TeamColor == player.TeamColor then
-                            for u, x in pairs(lines) do
-                                x.Color = green
-                            end
-                        else 
-                            for u, x in pairs(lines) do
-                                x.Color = red
-                            end
-                        end
-                    end
+coroutine.wrap(TIRV_fake_script)()
 
-                    --// Autothickness:
-                    if Autothickness then
-                        local distance = (player.Character.HumanoidRootPart.Position - newplr.Character.HumanoidRootPart.Position).magnitude
-                        local value = math.clamp(1/distance*100, 0.1, 4) --0.1 is min thickness, 6 is max
-                        for u, x in pairs(lines) do
-                            x.Thickness = value
-                        end
-                    else 
-                        for u, x in pairs(lines) do
-                            x.Thickness = Box_Thickness
-                        end
-                    end
+local function UKAL_fake_script() -- degrad.LocalScript 
+	local script = Instance.new('LocalScript', degrad)
 
-                    for u, x in pairs(lines) do
-                        if x ~= lines.Tracer then
-                            x.Visible = true
-                        end
-                    end
-                    if Tracers then
-                        lines.Tracer.Visible = true
-                    end
-                else 
-                    for u, x in pairs(lines) do
-                        x.Visible = false
-                    end
-                end
-            else 
-                for u, x in pairs(lines) do
-                    x.Visible = false
-                end
-                if game.Players:FindFirstChild(newplr.Name) == nil then
-                    connection:Disconnect()
-                end
-            end
-        end)
-    end
-    coroutine.wrap(ESP)()
-end)
+	script.Parent.BackgroundTransparency = 1
+	script.Parent.Size = UDim2.new(1, 0, 1, 0)
+	script.Parent.BackgroundColor3 = Color3.new(1,1,1)
+	script.Parent.BorderSizePixel = 0
+	script.Parent.BackgroundTransparency = 0.3
+	script.Parent.Rotation = -45
+end
+coroutine.wrap(UKAL_fake_script)()
+
+local function SAGB_fake_script() -- SyniX.LocalScript 
+	local script = Instance.new('LocalScript', SyniX)
+
+	script.Parent.TextScaled = true
+end
+coroutine.wrap(SAGB_fake_script)()
+
+local function SFSK_fake_script() -- up.LocalScript 
+	local script = Instance.new('LocalScript', up)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/XC4czN8d", true))()
+	end)
+end
+coroutine.wrap(SFSK_fake_script)()
+
+local function NZLD_fake_script() -- down.LocalScript 
+	local script = Instance.new('LocalScript', down)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/URD3kmUg", true))()
+	end)
+end
+coroutine.wrap(NZLD_fake_script)()
+
+local function GZVA_fake_script() -- speed.LocalScript 
+	local script = Instance.new('LocalScript', speed)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/9YhACckB", true))()
+	end)
+end
+coroutine.wrap(GZVA_fake_script)()
+
+local function XLHRY_fake_script() -- speed_2.LocalScript 
+	local script = Instance.new('LocalScript', speed_2)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/9YhACckB", true))()
+	end)
+end
+coroutine.wrap(XLHRY_fake_script)()
