@@ -1,500 +1,199 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local flyv1 = Instance.new("ScreenGui")
-local backgrondfly = Instance.new("Frame")
-local logoSyn = Instance.new("ImageLabel")
-local bordas = Instance.new("UICorner")
-local degrad = Instance.new("UIGradient")
-local SyniX = Instance.new("TextLabel")
-local FlyButton = Instance.new("TextButton")  -- Renomeado de FlyBUtton para FlyButton
-local UICorner = Instance.new("UICorner")
-local UIGradient = Instance.new("UIGradient")
-local speedUp = Instance.new("TextButton")  -- Renomeado de up para speedUp
-local UICorner_2 = Instance.new("UICorner")
-local UIGradient_2 = Instance.new("UIGradient")
-local speedDown = Instance.new("TextButton")  -- Renomeado de down para speedDown
-local UICorner_3 = Instance.new("UICorner")
-local UIGradient_3 = Instance.new("UIGradient")
-local speedIncrease = Instance.new("TextButton")  -- Renomeado de speed para speedIncrease
-local UICorner_4 = Instance.new("UICorner")
-local UIGradient_4 = Instance.new("UIGradient")
-local speedDecrease = Instance.new("TextButton")  -- Renomeado de speed_2 para speedDecrease
-local UICorner_5 = Instance.new("UICorner")
-local UIGradient_5 = Instance.new("UIGradient")
-
--- Properties:
-
-flyv1.Name = "flyv1"
-flyv1.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-flyv1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-backgrondfly.Name = "backgrondfly"
-backgrondfly.Parent = flyv1
-backgrondfly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-backgrondfly.BorderColor3 = Color3.fromRGB(0, 0, 0)
-backgrondfly.BorderSizePixel = 0
-backgrondfly.Position = UDim2.new(0.302949131, 0, 0.312302828, 0)
-backgrondfly.Size = UDim2.new(0, 328, 0, 134)
-
-logoSyn.Name = "logoSyn"
-logoSyn.Parent = backgrondfly
-logoSyn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-logoSyn.BackgroundTransparency = 1.000
-logoSyn.BorderColor3 = Color3.fromRGB(0, 0, 0)
-logoSyn.BorderSizePixel = 0
-logoSyn.Size = UDim2.new(0, 46, 0, 46)
-logoSyn.Image = "rbxassetid://14862323455"
-
-bordas.Name = "bordas"
-bordas.Parent = backgrondfly
-
-degrad.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(2, 2, 2)), ColorSequenceKeypoint.new(0.55, Color3.fromRGB(60, 3, 66)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(67, 2, 75))}
-degrad.Name = "degrad"
-degrad.Parent = backgrondfly
-
-SyniX.Name = "SyniX"
-SyniX.Parent = backgrondfly
-SyniX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SyniX.BackgroundTransparency = 1.000
-SyniX.BorderColor3 = Color3.fromRGB(0, 0, 0)
-SyniX.BorderSizePixel = 0
-SyniX.Position = UDim2.new(0.259740263, 0, 0.0973451361, 0)
-SyniX.Size = UDim2.new(0, 80, 0, 23)
-SyniX.Font = Enum.Font.Unknown
-SyniX.Text = "SyniX Fly v1"
-SyniX.TextColor3 = Color3.fromRGB(255, 255, 255)
-SyniX.TextSize = 27.000
-
-FlyButton.Name = "FlyButton"  -- Renomeado de FlyBUtton para FlyButton
-FlyButton.Parent = backgrondfly
-FlyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-FlyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-FlyButton.BorderSizePixel = 0
-FlyButton.Position = UDim2.new(0.751663029, 0, 0.672566414, 0)
-FlyButton.Size = UDim2.new(0, 74, 0, 31)
-FlyButton.Font = Enum.Font.FredokaOne
-FlyButton.Text = "FLY"
-FlyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-FlyButton.TextSize = 23.000
-
-UICorner.Parent = FlyButton
-
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(118, 0, 131)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
-UIGradient.Parent = FlyButton
-
-speedUp.Name = "speedUp"  -- Renomeado de up para speedUp
-speedUp.Parent = backgrondfly
-speedUp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-speedUp.BorderColor3 = Color3.fromRGB(250, 221, 0)
-speedUp.BorderSizePixel = 0
-speedUp.Position = UDim2.new(0.575625539, 0, 0.672566414, 0)
-speedUp.Size = UDim2.new(0, 43, 0, 31)
-speedUp.Font = Enum.Font.FredokaOne
-speedUp.Text = "UP"
-speedUp.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedUp.TextSize = 23.000
-
-UICorner_2.Parent = speedUp
-
-UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
-UIGradient_2.Parent = speedUp
-
-speedDown.Name = "speedDown"  -- Renomeado de down para speedDown
-speedDown.Parent = backgrondfly
-speedDown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-speedDown.BorderColor3 = Color3.fromRGB(250, 221, 0)
-speedDown.BorderSizePixel = 0
-speedDown.Position = UDim2.new(0.350015789, 0, 0.672566414, 0)
-speedDown.Size = UDim2.new(0, 67, 0, 31)
-speedDown.Font = Enum.Font.FredokaOne
-speedDown.Text = "DOWN"
-speedDown.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedDown.TextSize = 23.000
-
-UICorner_3.Parent = speedDown
-
-UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
-UIGradient_3.Parent = speedDown
-
-speedIncrease.Name = "speedIncrease"  -- Renomeado de speed para speedIncrease
-speedIncrease.Parent = backgrondfly
-speedIncrease.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-speedIncrease.BorderColor3 = Color3.fromRGB(250, 221, 0)
-speedIncrease.BorderSizePixel = 0
-speedIncrease.Position = UDim2.new(0.880504131, 0, 0.381521642, 0)
-speedIncrease.Size = UDim2.new(0, 31, 0, 31)
-speedIncrease.Font = Enum.Font.FredokaOne
-speedIncrease.Text = "+"
-speedIncrease.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedIncrease.TextSize = 23.000
-
-UICorner_4.Parent = speedIncrease
-
-UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
-UIGradient_4.Parent = speedIncrease
-
-speedDecrease.Name = "speedDecrease"  -- Renomeado de speed_2 para speedDecrease
-speedDecrease.Parent = backgrondfly
-speedDecrease.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-speedDecrease.BorderColor3 = Color3.fromRGB(250, 221, 0)
-speedDecrease.BorderSizePixel = 0
-speedDecrease.Position = UDim2.new(0.749406576, 0, 0.381521642, 0)
-speedDecrease.Size = UDim2.new(0, 31, 0, 31)
-speedDecrease.Font = Enum.Font.FredokaOne
-speedDecrease.Text = "-"
-speedDecrease.TextColor3 = Color3.fromRGB(0, 0, 0)
-speedDecrease.TextSize = 23.000
-
-UICorner_5.Parent = speedDecrease
-
-UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(129, 3, 148)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 1, 122))}
-UIGradient_5.Parent = speedDecrease
-speeds = 1
-
-local speaker = game:GetService("Players").LocalPlayer
-
-local chr = game.Players.LocalPlayer.Character
-local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-
-nowe = false
-
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "FLY GUI V3";
-	Text = "BY XNEO";
-	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
-Duration = 5;
-
-Frame.Active = true -- main = gui
-Frame.Draggable = true
-
-onof.MouseButton1Down:connect(function()
-
-	if nowe == true then
-		nowe = false
-
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
-		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
-	else 
-		nowe = true
-
-
-
-		for i = 1, speeds do
-			spawn(function()
-
-				local hb = game:GetService("RunService").Heartbeat	
-
-
-				tpwalking = true
-				local chr = game.Players.LocalPlayer.Character
-				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-					if hum.MoveDirection.Magnitude > 0 then
-						chr:TranslateBy(hum.MoveDirection)
-					end
-				end
-
-			end)
-		end
-		game.Players.LocalPlayer.Character.Animate.Disabled = true
-		local Char = game.Players.LocalPlayer.Character
-		local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
-
-		for i,v in next, Hum:GetPlayingAnimationTracks() do
-			v:AdjustSpeed(0)
-		end
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
-		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
-		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-	end
-
-
-
-
-	if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
-
-
-
-		local plr = game.Players.LocalPlayer
-		local torso = plr.Character.Torso
-		local flying = true
-		local deb = true
-		local ctrl = {f = 0, b = 0, l = 0, r = 0}
-		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
-		local maxspeed = 50
-		local speed = 0
-
-
-		local bg = Instance.new("BodyGyro", torso)
-		bg.P = 9e4
-		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-		bg.cframe = torso.CFrame
-		local bv = Instance.new("BodyVelocity", torso)
-		bv.velocity = Vector3.new(0,0.1,0)
-		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
-		if nowe == true then
-			plr.Character.Humanoid.PlatformStand = true
-		end
-		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
-			game:GetService("RunService").RenderStepped:Wait()
-
-			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
-				speed = speed+.5+(speed/maxspeed)
-				if speed > maxspeed then
-					speed = maxspeed
-				end
-			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
-				speed = speed-1
-				if speed < 0 then
-					speed = 0
-				end
-			end
-			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
-			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-			else
-				bv.velocity = Vector3.new(0,0,0)
-			end
-			--	game.Players.LocalPlayer.Character.Animate.Disabled = true
-			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
-		end
-		ctrl = {f = 0, b = 0, l = 0, r = 0}
-		lastctrl = {f = 0, b = 0, l = 0, r = 0}
-		speed = 0
-		bg:Destroy()
-		bv:Destroy()
-		plr.Character.Humanoid.PlatformStand = false
-		game.Players.LocalPlayer.Character.Animate.Disabled = false
-		tpwalking = false
-
-
-
-
-	else
-		local plr = game.Players.LocalPlayer
-		local UpperTorso = plr.Character.UpperTorso
-		local flying = true
-		local deb = true
-		local ctrl = {f = 0, b = 0, l = 0, r = 0}
-		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
-		local maxspeed = 50
-		local speed = 0
-
-
-		local bg = Instance.new("BodyGyro", UpperTorso)
-		bg.P = 9e4
-		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-		bg.cframe = UpperTorso.CFrame
-		local bv = Instance.new("BodyVelocity", UpperTorso)
-		bv.velocity = Vector3.new(0,0.1,0)
-		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
-		if nowe == true then
-			plr.Character.Humanoid.PlatformStand = true
-		end
-		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
-			wait()
-
-			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
-				speed = speed+.5+(speed/maxspeed)
-				if speed > maxspeed then
-					speed = maxspeed
-				end
-			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
-				speed = speed-1
-				if speed < 0 then
-					speed = 0
-				end
-			end
-			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
-			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-			else
-				bv.velocity = Vector3.new(0,0,0)
-			end
-
-			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
-		end
-		ctrl = {f = 0, b = 0, l = 0, r = 0}
-		lastctrl = {f = 0, b = 0, l = 0, r = 0}
-		speed = 0
-		bg:Destroy()
-		bv:Destroy()
-		plr.Character.Humanoid.PlatformStand = false
-		game.Players.LocalPlayer.Character.Animate.Disabled = false
-		tpwalking = false
-
-
-
-	end
-
-
-
-
-
-end)
-
-local tis
-
-up.MouseButton1Down:connect(function()
-	tis = up.MouseEnter:connect(function()
-		while tis do
-			wait()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,1,0)
-		end
-	end)
-end)
-
-up.MouseLeave:connect(function()
-	if tis then
-		tis:Disconnect()
-		tis = nil
-	end
-end)
-
-local dis
-
-down.MouseButton1Down:connect(function()
-	dis = down.MouseEnter:connect(function()
-		while dis do
-			wait()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
-		end
-	end)
-end)
-
-down.MouseLeave:connect(function()
-	if dis then
-		dis:Disconnect()
-		dis = nil
-	end
-end)
-
-
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
-	wait(0.7)
-	game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-	game.Players.LocalPlayer.Character.Animate.Disabled = false
-
-end)
-
-
-plus.MouseButton1Down:connect(function()
-	speeds = speeds + 1
-	speed.Text = speeds
-	if nowe == true then
-
-
-		tpwalking = false
-		for i = 1, speeds do
-			spawn(function()
-
-				local hb = game:GetService("RunService").Heartbeat	
-
-
-				tpwalking = true
-				local chr = game.Players.LocalPlayer.Character
-				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-					if hum.MoveDirection.Magnitude > 0 then
-						chr:TranslateBy(hum.MoveDirection)
-					end
-				end
-
-			end)
-		end
-	end
-end)
-mine.MouseButton1Down:connect(function()
-	if speeds == 1 then
-		speed.Text = 'cannot be less than 1'
-		wait(1)
-		speed.Text = speeds
-	else
-		speeds = speeds - 1
-		speed.Text = speeds
-		if nowe == true then
-			tpwalking = false
-			for i = 1, speeds do
-				spawn(function()
-
-					local hb = game:GetService("RunService").Heartbeat	
-
-
-					tpwalking = true
-					local chr = game.Players.LocalPlayer.Character
-					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-						if hum.MoveDirection.Magnitude > 0 then
-							chr:TranslateBy(hum.MoveDirection)
-						end
-					end
-
-				end)
-			end
-		end
-	end
-end)
-
-closebutton.MouseButton1Click:Connect(function()
-	main:Destroy()
-end)
-
-mini.MouseButton1Click:Connect(function()
-	up.Visible = false
-	down.Visible = false
-	onof.Visible = false
-	plus.Visible = false
-	speed.Visible = false
-	mine.Visible = false
-	mini.Visible = false
-	mini2.Visible = true
-	main.Frame.BackgroundTransparency = 1
-	closebutton.Position =  UDim2.new(0, 0, -1, 57)
-end)
-
-mini2.MouseButton1Click:Connect(function()
-	up.Visible = true
-	down.Visible = true
-	onof.Visible = true
-	plus.Visible = true
-	speed.Visible = true
-	mine.Visible = true
-	mini.Visible = true
-	mini2.Visible = false
-	main.Frame.BackgroundTransparency = 0 
-	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/RayzMd/Syn1XL18B/main/LibbySyniXRelease'))()
+
+local Window = OrionLib:MakeWindow({ Name = "Synix", HidePremium = false, SaveConfig = "Synix" })
+
+local PLAYER = Window:MakeTab({
+    Name = "PLAYER",
+    Icon = "rbxassetid://14961970030",
+    PremiumOnly = false
+})
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local VirtualUser = game:GetService("VirtualUser")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
+local toggleValue = false -- Valor de ativação
+local fastAttackEnabled = true -- Ativar ataque rápido
+
+local bodyPosition
+local bodyGyro
+local currentQuest = Instance.new('StringValue', player)
+
+currentQuest.Name = "CurrentQuest"
+currentQuest.Value = ""
+local soldierDefeatedCount = 0 -- Contador de NPCs "Soldier" derrotados
+local clownDefeatedCount = 0 -- Contador de NPCs "Clown" derrotados
+local targetNPCName = "Soldier [Lv. 1]" -- Nome do NPC alvo padrão
+
+-- Função para posicionar o personagem acima do NPC (apenas se a missão estiver ativa)
+local function positionCharacterAboveNPC(npc)
+    if currentQuest.Value == "Kill 4 Soldiers" then
+        if not bodyPosition then
+            bodyPosition = Instance.new("BodyPosition")
+            bodyPosition.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+            bodyPosition.D = 400000
+            bodyPosition.P = 400000
+            bodyPosition.Parent = humanoidRootPart
+        end
+
+        if not bodyGyro then
+            bodyGyro = Instance.new("BodyGyro")
+            bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+            bodyGyro.P = 20000
+            bodyGyro.CFrame = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(math.rad(-90), 0, 0) -- Manter deitado para baixo
+            bodyGyro.Parent = humanoidRootPart
+        end
+
+        local targetPosition = npc.HumanoidRootPart.Position + Vector3.new(0, 8, 0) -- Ajuste a altura conforme necessário
+        bodyPosition.Position = targetPosition
+    else
+        warn("You can't teleport to the NPC without an active quest.")
+    end
+end
+
+-- Função para ativar a ação de ataque
+local function activateSkillAction()
+    local args = {
+        [1] = "FS_None_M1"
+    }
+    ReplicatedStorage.Chest.Remotes.Functions.SkillAction:InvokeServer(unpack(args))
+
+    if fastAttackEnabled then
+        VirtualUser:CaptureController()
+        VirtualUser:Button1Down(Vector2.new(686, 352))
+    end
+end
+
+-- Função para atacar NPCs
+local function attackNPC(npc)
+    while npc:FindFirstChild("Humanoid") and npc.Humanoid.Health > 0 and toggleValue do
+        activateSkillAction()
+        RunService.Heartbeat:Wait() -- Tempo de espera reduzido para zero para atacar o mais rápido possível
+        RunService.RenderStepped:Wait() -- Aguardar o próximo passo de renderização para tentar maximizar a velocidade de ataque
+    end
+end
+
+-- Função para pegar a missão
+local function takeQuest()
+    local playerLevel = player.PlayerStats.lvl.Value
+    if targetNPCName == "Soldier [Lv. 1]" then
+        if playerLevel >= 1 and playerLevel <= 9 then
+            humanoidRootPart.CFrame = CFrame.new(Vector3.new(-2075.097900390625, 49.55962371826172, -4559.7158203125))
+            local args = {
+                [1] = "take",
+                [2] = "Kill 4 Soldiers"
+            }
+            ReplicatedStorage.Chest.Remotes.Functions.Quest:InvokeServer(unpack(args))
+            currentQuest.Value = "Kill 4 Soldiers"
+            print("Quest taken: Kill 4 Soldiers")
+        else
+            warn("You are not eligible for this quest. Your level must be between 1 and 9.")
+        end
+    elseif targetNPCName == "Clown Pirate [Lv. 10]" then
+        if playerLevel >= 10 and playerLevel <= 40 then
+            humanoidRootPart.CFrame = CFrame.new(Vector3.new(-2075.097900390625, 49.55962371826172, -4559.7158203125))
+            local args = {
+                [1] = "take",
+                [2] = "Kill 5 Clown Pirates"
+            }
+            ReplicatedStorage.Chest.Remotes.Functions.Quest:InvokeServer(unpack(args))
+            currentQuest.Value = "Kill 5 Guards"
+            print("Quest taken: Kill 5 Guards")
+        else
+            warn("You are not eligible for this quest. Your level must be between 10 and 19.")
+        end
+    end
+
+-- Função para encontrar um NPC pelo nome na pasta especificada
+local function getNPC(npcName)
+    local npcs = {} -- Lista para armazenar os NPCs encontrados
+    local monstersFolder = workspace:FindFirstChild("Monster")
+    if monstersFolder then
+        local monsFolder = monstersFolder:FindFirstChild("Mon")
+        if monsFolder then
+            for _, obj in pairs(monsFolder:GetChildren()) do
+                if obj:IsA("Model") and obj.Name == npcName and obj:FindFirstChild("Humanoid") and obj.Humanoid.Health > 0 then
+                    table.insert(npcs, obj)
+                end
+            end
+        end
+    end
+    if #npcs > 0 then
+        return npcs[1] -- Retornar o primeiro NPC encontrado que corresponde aos critérios
+    else
+        return nil
+    end
+end
+
+-- Função para mover o personagem até o NPC
+local function moveToNPC(npc)
+    local targetPosition = npc.HumanoidRootPart.Position + Vector3.new(0, 8, 0) -- Ajuste a altura conforme necessário
+    humanoidRootPart.CFrame = CFrame.new(targetPosition)
+end
+
+-- Função principal para atacar NPCs
+local function attackNPCs(npcName)
+    while toggleValue do
+        if currentQuest.Value == "" then
+            takeQuest()
+            if npcName == "Soldier [Lv. 1]" then
+                soldierDefeatedCount = 0 -- Resetar o contador de NPCs derrotados
+            elseif npcName == "Clown Pirate [Lv. 10]" then
+                clownDefeatedCount = 0 -- Resetar o contador de NPCs derrotados
+            end
+        end
+
+        local npc = getNPC(npcName)
+        if npc then
+            moveToNPC(npc)
+            positionCharacterAboveNPC(npc)
+            attackNPC(npc)
+
+            if npcName == "Soldier [Lv. 1]" then
+                soldierDefeatedCount = soldierDefeatedCount + 1
+                if soldierDefeatedCount >= 4 then
+                    currentQuest.Value = ""
+                    soldierDefeatedCount = 0
+                end
+            elseif npcName == "Clown Pirate [Lv. 10]" then
+                clownDefeatedCount = clownDefeatedCount + 1
+                if clownDefeatedCount >= 5 then
+                    currentQuest.Value = ""
+                    clownDefeatedCount = 0
+                end
+            end
+        else
+            warn("No alive NPC " .. npcName .. " found!")
+        end
+
+        RunService.Heartbeat:Wait()
+    end
+end
+-- Adicionar o toggle Auto-Fight
+local autoFightToggle = PLAYER:AddToggle({
+    Name = "Auto-Fight",
+    Default = false,
+    Callback = function(Value)
+        toggleValue = Value
+        if toggleValue then
+            attackNPCs("Soldier [Lv. 1]")
+        else
+            if bodyPosition then bodyPosition:Destroy() bodyPosition = nil end
+            if bodyGyro then bodyGyro:Destroy() bodyGyro = nil end
+        end
+    end
+})
+
+-- Adicionar labels para exibir o nível do jogador e a missão atual
+local playerLevelLabel = PLAYER:AddLabel("Player Level: " .. player.PlayerStats.lvl.Value)
+local currentQuestLabel = PLAYER:AddLabel("Current Quest: " .. currentQuest.Value)
+
+-- Atualizar as labels em tempo real
+RunService.RenderStepped:Connect(function()
+    playerLevelLabel:Set("Player Level: " .. player.PlayerStats.lvl.Value)
+    currentQuestLabel:Set("Current Quest: " .. currentQuest.Value)
 end)
